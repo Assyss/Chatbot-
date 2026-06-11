@@ -1,6 +1,6 @@
-# DB2 - provisionamento e carga dos dados
+# Atividade ChatBot - DB2
 
-Este guia segue a atividade AV-01-ICL-Chatbot usando IBM Db2 on Cloud e a API REST do Db2.
+Este guia segue a Atividade ChatBot usando IBM Db2 on Cloud e a API REST do Db2.
 
 ## 1. Criar o servico DB2
 

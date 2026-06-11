@@ -1,4 +1,4 @@
-# Watsonx Assistant - configuracao
+# Atividade ChatBot - Watsonx Assistant
 
 Este guia descreve como configurar o Watsonx Assistant para consumir os dados do DB2 da atividade.
 

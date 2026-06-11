@@ -1,6 +1,6 @@
-# AV-01-ICL-Chatbot
+# Atividade ChatBot
 
-Chatbot de matricula usando IBM Db2 e Watsonx Assistant.
+Atividade ChatBot de matricula usando IBM Db2 e Watsonx Assistant.
 
 Este repositorio contem os artefatos da atividade:
 

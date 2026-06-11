@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Load the AV-01 ICL sample data into IBM Db2 through the Db2 REST API."""
+"""Load the Atividade ChatBot sample data into IBM Db2 through the Db2 REST API."""
 
 from __future__ import annotations
 
