@@ -1,0 +1,69 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GetDB2SQLJob",
+    "version": "1.0.0",
+    "description": "Fetch the result of a SQL job from IBM Db2 REST API."
+  },
+  "servers": [
+    {
+      "url": "https://{HOSTNAME}",
+      "variables": {
+        "HOSTNAME": {
+          "default": "example.db2.cloud.ibm.com"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/dbapi/v4/sql_jobs/{job_id}": {
+      "get": {
+        "summary": "GetDB2SQLJob",
+        "operationId": "GetDB2SQLJob",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "SQL job identifier returned by RunDB2SQLJob"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+            },
+            "description": "Bearer token returned by GetDB2Token"
+          },
+          {
+            "name": "x-deployment-id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Deployment identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SQL job details and result set",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

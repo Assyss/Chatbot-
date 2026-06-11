@@ -1,0 +1,101 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "RunDB2SQLJob",
+    "version": "1.0.0",
+    "description": "Submit SQL commands to IBM Db2 REST API."
+  },
+  "servers": [
+    {
+      "url": "https://{HOSTNAME}",
+      "variables": {
+        "HOSTNAME": {
+          "default": "example.db2.cloud.ibm.com"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/dbapi/v4/sql_jobs": {
+      "post": {
+        "summary": "RunDB2SQLJob",
+        "operationId": "RunDB2SQLJob",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+            },
+            "description": "Bearer token returned by GetDB2Token"
+          },
+          {
+            "name": "x-deployment-id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Deployment identifier"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "commands"
+                ],
+                "properties": {
+                  "commands": {
+                    "type": "string",
+                    "example": "SELECT * FROM ALUNOS;"
+                  },
+                  "separator": {
+                    "type": "string",
+                    "default": ";"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "default": 100
+                  },
+                  "stop_on_error": {
+                    "type": "string",
+                    "enum": [
+                      "yes",
+                      "no"
+                    ],
+                    "default": "yes"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "SQL job accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "SQL job identifier"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
